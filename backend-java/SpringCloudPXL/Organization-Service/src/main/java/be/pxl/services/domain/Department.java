@@ -1,5 +1,6 @@
 package be.pxl.services.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,10 @@ import java.util.List;
 @Embeddable
 public class Department {
     private Long id;
+    @Column(name = "organization_id")
     private Long organizationId;
     private String name;
+    @ElementCollection
     private List<Employee> employees;
     private String position;
 }
